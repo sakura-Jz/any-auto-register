@@ -21,7 +21,7 @@ const SELECT_FIELDS: Record<string, { label: string; value: string }[]> = {
     { label: 'MoeMail (sall.cc)', value: 'moemail' },
     { label: 'Freemail（自建 CF Worker）', value: 'freemail' },
     { label: 'CF Worker（自建域名）', value: 'cfworker' },
-    { label: 'LuckMail（付费接码平台）', value: 'luckmail' },
+    { label: 'LuckMail（订单接码 / 已购邮箱）', value: 'luckmail' },
   ],
   default_executor: [
     { label: 'API 协议（无浏览器）', value: 'protocol' },
@@ -79,7 +79,7 @@ const TAB_ITEMS = [
       },
       {
         title: 'MoeMail',
-        desc: '自动注册账号并生成临时邮箱，默认无需配置',
+        desc: '自动注册账号并生成临时邮箱',
         fields: [{ key: 'moemail_api_url', label: 'API URL', placeholder: 'https://sall.cc' }],
       },
       {
@@ -89,7 +89,7 @@ const TAB_ITEMS = [
       },
       {
         title: 'DuckMail',
-        desc: '自动生成邮箱，随机创建账号（默认无需配置）',
+        desc: '自动生成邮箱，随机创建账号',
         fields: [
           { key: 'duckmail_api_url', label: 'Web URL', placeholder: 'https://www.duckmail.sbs' },
           { key: 'duckmail_provider_url', label: 'Provider URL', placeholder: 'https://api.duckmail.sbs' },
@@ -108,11 +108,12 @@ const TAB_ITEMS = [
       },
       {
         title: 'LuckMail',
-        desc: '付费接码平台，支持 Outlook / Gmail 等多种邮箱类型',
+        desc: 'ChatGPT 走购买邮箱，其他平台继续走订单接码老逻辑',
         fields: [
           { key: 'luckmail_base_url', label: '平台地址', placeholder: 'https://mails.luckyous.com' },
           { key: 'luckmail_api_key', label: 'API Key', secret: true },
           { key: 'luckmail_email_type', label: '邮箱类型（可选）', placeholder: 'ms_graph / ms_imap / self_built' },
+          { key: 'luckmail_domain', label: '邮箱域名（可选）', placeholder: 'outlook.com / gmail.com' },
         ],
       },
     ],
